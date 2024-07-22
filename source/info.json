@@ -1,0 +1,14 @@
+{
+    "_comments": {
+        "close_time": "how long before computer turns off",
+        "show_video": "whether video is shown - 0 is false, 1 is true",
+        "show_box": "whether boxes around human are shown - 0 is false, 1 is true - video needs to be ON too",
+        "make_sound": "whether the computer will make a sound when breach happens",
+        "password": "password you want"
+    },
+    "close_time": 30,
+    "show_video": 1,
+    "show_box": 1,
+    "make_sound": 1,
+    "password": "asdf"
+}
