@@ -2,13 +2,17 @@
     "_comments": {
         "close_time": "how long before computer turns off",
         "show_video": "whether video is shown - 0 is false, 1 is true",
-        "show_box": "whether boxes around human are shown - 0 is false, 1 is true - video needs to be ON too",
+        "show_box": "whether boxes around human AND time left are shown - 0 is false, 1 is true - video needs to be ON too",
         "make_sound": "whether the computer will make a sound when breach happens",
+        "delay": "how long you want a delay to start from when the app opens",
+        "shut_down": "whether to shut down or just keep the window until password is entered 0 false 1 true",
         "password": "password you want"
     },
-    "close_time": 30,
+    "close_time": 5,
     "show_video": 1,
     "show_box": 1,
     "make_sound": 1,
+    "delay": 45,
+    "shut_down":0,
     "password": "asdf"
 }

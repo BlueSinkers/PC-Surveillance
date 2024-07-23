@@ -2,6 +2,7 @@ import tkinter as tk
 import time
 import json 
 import pygame
+import os
 
 #getting stuff from the json file
 with open("source/info.json", 'r') as file:
@@ -11,7 +12,7 @@ with open("source/info.json", 'r') as file:
 close_time = data['close_time'];
 make_sound = data['make_sound'];
 ogpassword = data['password'];
-    
+shut_down = data['shut_down'];
 
 def play_sound():
     if make_sound:
@@ -24,6 +25,7 @@ def play_sound():
             
 
 def window_main():
+    failure = 1
     # Create the main window
     root = tk.Tk()
     root.title("Password Entry")
@@ -38,7 +40,11 @@ def window_main():
     #play first sound
     play_sound();
     # Create a label and entry for password input
-    label = tk.Label(root, text="ENTER YOUR PASSWORD WITHIN 30 SECONDS OR ELSE YOUR PC WILL SHUT DOWN:").pack(pady=10)
+    if shut_down:
+        label = tk.Label(root, text="ENTER YOUR PASSWORD WITHIN " + str(close_time) + " SECONDS OR ELSE YOUR PC WILL SHUT DOWN:").pack(pady=10)
+    else:
+        label = tk.Label(root, text="ENTER YOUR PASSWORD TO GET THE COMPUTER BACK:").pack(pady=10)
+
     password_entry = tk.Entry(root, show='*')
     password_entry.pack(pady=5)
         
@@ -46,7 +52,7 @@ def window_main():
     def on_ok():
         password = password_entry.get()
         if password == ogpassword:
-            print('not shut down computer here')
+            failure = 0
             root.destroy()
         else:
             play_sound()
@@ -57,7 +63,8 @@ def window_main():
     root.bind('<Return>', lambda event: on_ok())
     
     # Display the window
-    root.after(close_time*1000, root.destroy)  #closes window after 30 seconds and will then proceed to shut down the pc
+    if shut_down:
+        root.after(close_time*1000, root.destroy)  #closes window after 30 seconds and will then proceed to shut down the pc
     root.mainloop()
-    print('shut down computer here')
-    
+    if failure and shut_down:
+        os.shutdown()
