@@ -1,5 +1,5 @@
 # PC-Surveillance
-This uses YOLO (You Only Look Once) to make a surveillance detector that can be used to check if someone is operating your computer through your webcam. This is a very basic project you can complete after understanding how YOLO and other object-detection algorithms work, and is referneced in my note which you can find on my website.
+This uses YOLO (You Only Look Once) to make a surveillance detector that can be used to check if someone is operating your computer through your webcam. This is a very basic project you can complete after understanding how YOLO and other object-detection algorithms work, and is referenced in my notes which you can find on my website.
 
 Some basic things about what's going on:
 - I have a settings tab in a JSON file ("source/info.json") that has a bunch of settings that are tweakable to affect the performance of the surveillance checker.
